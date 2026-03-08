@@ -14,7 +14,101 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      assessment_answers: {
+        Row: {
+          answer_value: string
+          assessment_id: string
+          id: string
+          question_key: string
+        }
+        Insert: {
+          answer_value: string
+          assessment_id: string
+          id?: string
+          question_key: string
+        }
+        Update: {
+          answer_value?: string
+          assessment_id?: string
+          id?: string
+          question_key?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "assessment_answers_assessment_id_fkey"
+            columns: ["assessment_id"]
+            isOneToOne: false
+            referencedRelation: "assessments"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      assessments: {
+        Row: {
+          completed_at: string
+          id: string
+          score_digestion: number | null
+          score_inflammation: number | null
+          score_microbiome: number | null
+          score_overall: number | null
+          user_id: string
+        }
+        Insert: {
+          completed_at?: string
+          id?: string
+          score_digestion?: number | null
+          score_inflammation?: number | null
+          score_microbiome?: number | null
+          score_overall?: number | null
+          user_id: string
+        }
+        Update: {
+          completed_at?: string
+          id?: string
+          score_digestion?: number | null
+          score_inflammation?: number | null
+          score_microbiome?: number | null
+          score_overall?: number | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          activity_level: string | null
+          age: number | null
+          created_at: string
+          gender: string | null
+          height_cm: number | null
+          id: string
+          updated_at: string
+          user_id: string
+          weight_kg: number | null
+        }
+        Insert: {
+          activity_level?: string | null
+          age?: number | null
+          created_at?: string
+          gender?: string | null
+          height_cm?: number | null
+          id?: string
+          updated_at?: string
+          user_id: string
+          weight_kg?: number | null
+        }
+        Update: {
+          activity_level?: string | null
+          age?: number | null
+          created_at?: string
+          gender?: string | null
+          height_cm?: number | null
+          id?: string
+          updated_at?: string
+          user_id?: string
+          weight_kg?: number | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
