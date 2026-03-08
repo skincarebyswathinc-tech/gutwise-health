@@ -13,7 +13,22 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        display: ["'Playfair Display'", "serif"],
+        body: ["'DM Sans'", "sans-serif"],
+      },
       colors: {
+        wellness: {
+          sage: "hsl(var(--wellness-sage))",
+          cream: "hsl(var(--wellness-cream))",
+          warm: "hsl(var(--wellness-warm))",
+        },
+        score: {
+          excellent: "hsl(var(--score-excellent))",
+          good: "hsl(var(--score-good))",
+          fair: "hsl(var(--score-fair))",
+          poor: "hsl(var(--score-poor))",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
